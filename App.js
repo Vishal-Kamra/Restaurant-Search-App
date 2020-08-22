@@ -1,19 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import SearchScreen from './src/screens/SearchScreen';
+import RestrauntDetail from './src/screens/RestrauntDetail';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+const stack = createStackNavigator();
+
+export default function App(){
+  return(
+    <NavigationContainer>
+      <stack.Navigator initialRouteName='Search Screen'>
+        <stack.Screen name='Search Screen' component={SearchScreen} />
+        <stack.Screen name='Restraunt' component={RestrauntDetail} />
+      </stack.Navigator>
+    </NavigationContainer>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
